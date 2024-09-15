@@ -32,7 +32,7 @@ namespace tabuleiro {
                 throw new TabuleiroException("Posição Inválida!");
         }
 
-        public bool existePeca(Posicao pos) { 
+        public bool existePeca(Posicao pos) {
             validarPosicao(pos);
             return peca(pos) != null;
         }
@@ -43,6 +43,17 @@ namespace tabuleiro {
             }
             pecas[pos.Linha, pos.Coluna] = p;
             p.Posicao = pos;
+        }
+
+        public Peca retirarPeca(Posicao pos) {
+            if (!existePeca(pos)) {
+                return null;
+            }
+
+            Peca aux = peca(pos);
+            aux.Posicao = null;
+            pecas[pos.Linha,pos.Coluna] = null;
+            return aux;
         }
 
 

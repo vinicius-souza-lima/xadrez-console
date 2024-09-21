@@ -3,13 +3,13 @@ using tabuleiro;
 
 namespace xadrez {
     internal class PartidaDeXadrez {
-        public Tabuleiro tab { get; private set; }
+        public Tabuleiro Tab { get; private set; }
         private int turno;
         private Cor jogadorAtual;
         public bool terminada {  get; private set; }
 
         public PartidaDeXadrez() {
-            tab = new(8, 8);
+            Tab = new(8, 8);
             turno = 1;
             jogadorAtual = Cor.Branca;
             terminada = false;
@@ -17,18 +17,18 @@ namespace xadrez {
         }
 
         public void executaMovimento(Posicao origem, Posicao destino) {
-            Peca p = tab.retirarPeca(origem);
+            Peca p = Tab.retirarPeca(origem);
             p.incrementarQteMovimentos();
-            Peca pecaCapturada = tab.retirarPeca(destino);
-            tab.colocarPeca(p,destino);
+            Peca pecaCapturada = Tab.retirarPeca(destino);
+            Tab.colocarPeca(p,destino);
         }
 
         public void colocarPecas() {
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new PosicaoXadrez('c',1).ToPosicao());
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new PosicaoXadrez('c', 2).ToPosicao());
-            tab.colocarPeca(new Rei(tab, Cor.Preta), new PosicaoXadrez('c', 3).ToPosicao());
+            Tab.colocarPeca(new Torre(Tab, Cor.Preta), new PosicaoXadrez('c',1).ToPosicao());
+            Tab.colocarPeca(new Torre(Tab, Cor.Preta), new PosicaoXadrez('c', 2).ToPosicao());
+            Tab.colocarPeca(new Rei(Tab, Cor.Preta), new PosicaoXadrez('c', 3).ToPosicao());
 
-            tab.colocarPeca(new Torre(tab, Cor.Branca), new PosicaoXadrez('c', 4).ToPosicao());
+            Tab.colocarPeca(new Torre(Tab, Cor.Branca), new PosicaoXadrez('c', 4).ToPosicao());
         }
 
     }

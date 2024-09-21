@@ -17,12 +17,12 @@ namespace tabuleiro {
         }
 
         public Peca peca(Posicao pos) {
-            return pecas[pos.Linha, pos.Coluna];
+            return pecas[pos.linha, pos.coluna];
         }
 
 
         public bool posicaoValida(Posicao pos) {
-            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
+            if (pos.linha < 0 || pos.linha >= Linhas || pos.coluna < 0 || pos.coluna >= Colunas)
                 return false;
             return true;
         }
@@ -41,8 +41,8 @@ namespace tabuleiro {
             if (existePeca(pos)) {
                 throw new TabuleiroException("Já existe uma peça nessa posição!");
             }
-            pecas[pos.Linha, pos.Coluna] = p;
-            p.Posicao = pos;
+            pecas[pos.linha, pos.coluna] = p;
+            p.posicao = pos;
         }
 
         public Peca retirarPeca(Posicao pos) {
@@ -51,8 +51,8 @@ namespace tabuleiro {
             }
 
             Peca aux = peca(pos);
-            aux.Posicao = null;
-            pecas[pos.Linha,pos.Coluna] = null;
+            aux.posicao = null;
+            pecas[pos.linha,pos.coluna] = null;
             return aux;
         }
 

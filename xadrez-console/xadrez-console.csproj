@@ -6,6 +6,7 @@
     <RootNamespace>xadrez_console</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <SelfContained>true</SelfContained>
   </PropertyGroup>
 
 </Project>
